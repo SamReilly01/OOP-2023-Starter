@@ -2,6 +2,8 @@ package ie.tudublin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
+
 import processing.core.PApplet;
 
 public class DANI extends PApplet {
@@ -147,10 +149,26 @@ public class DANI extends PApplet {
 
     String[] sonnet;
 
-    public String[] writeSonnet()
-    {
-        return null;
-    }
+    public String writeSonnet() {
+		String sonnet = "";
+		Random rand = new Random();
+		Word currentWord = model.get(rand.nextInt(model.size())); // pick a random word to start
+		for (int i = 0; i < 14; i++) { // 14 lines in a sonnet
+			String line = currentWord.getWord();
+			for (int j = 0; j < 8; j++) { // 8 words per line
+				if (currentWord.getFollows().isEmpty()) { // if no follows, finish the sentence
+					break;
+				}
+				Follow followWord = currentWord.getFollows().get(rand.nextInt(currentWord.getFollows().size()));
+				line += " " + followWord.getWord();
+				currentWord = findWord(followWord.getWord());
+			}
+			sonnet += line + "\n";
+			currentWord = model.get(rand.nextInt(model.size())); // start new line with new random word
+		}
+		return sonnet;
+	}
+	
 
 	public void setup() {
 		colorMode(HSB);
