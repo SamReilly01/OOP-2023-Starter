@@ -6,6 +6,41 @@ import processing.core.PApplet;
 
 public class DANI extends PApplet {
 
+	public class Follow {
+		private String word;
+		private int count;
+	
+		// Constructors
+		public Follow(String word, int count) {
+			this.word = word;
+			this.count = count;
+		}
+	
+		public Follow(String word) {
+			this(word, 1);
+		}
+	
+		// Accessor methods
+		public String getWord() {
+			return word;
+		}
+	
+		public int getCount() {
+			return count;
+		}
+	
+		public void incrementCount() {
+			count++;
+		}
+	
+		// toString() method
+		@Override
+		public String toString() {
+			return word + ": " + count;
+		}
+	}
+	
+
 	
 
 	public void settings() {
