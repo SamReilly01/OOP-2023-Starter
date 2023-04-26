@@ -63,6 +63,10 @@ public class DANI extends PApplet {
        return false;
     }
 
+	public void printMode(){
+
+		}
+
+	}
 
 
-}
