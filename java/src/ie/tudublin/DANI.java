@@ -128,7 +128,10 @@ public class DANI extends PApplet {
     public static void main(String[] args) {
         DANI dani = new DANI();
         dani.loadFile("small.txt");
-        System.out.println(dani);
+		String sonnet = dani.writeSonnet();
+		System.out.println(sonnet); //generate sonnet
+        System.out.println(dani); //print sonnet
+
     }
 
 	public void printModel() {
