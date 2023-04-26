@@ -125,11 +125,21 @@ public class DANI extends PApplet {
 
     public static void main(String[] args) {
         DANI dani = new DANI();
-        dani.loadFile("sample.txt");
+        dani.loadFile("small.txt");
         System.out.println(dani);
     }
 
+	public void printModel() {
+		for (Word w : model) {
+			System.out.print(w.getWord() + ":");
+			for (Follow f : w.getFollows()) {
+				System.out.print(" " + f.getWord() + "(" + f.getCount() + ")");
+			}
+			System.out.println();
+		}
+	}
 	
+
 	public void settings() {
 		size(1000, 1000);
 		//fullScreen(SPAN);
